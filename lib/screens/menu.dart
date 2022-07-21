@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/models/models.dart';
 import 'package:ticci/widgets/category_box.dart';
+import 'package:ticci/widgets/navdrawer.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -10,7 +11,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: const Navdrawer(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

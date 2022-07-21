@@ -4,7 +4,7 @@ class Category extends Equatable {
   final int id;
   final String name;
 
-  Category({
+  const Category({
     required this.id,
     required this.name,
   });
@@ -13,39 +13,39 @@ class Category extends Equatable {
   List<Object?> get props => [id, name];
 
   static List<Category> categories = [
-    Category(
+    const Category(
       id: 1,
       name: 'Starters'
     ),
-    Category(
+    const Category(
       id: 2,
       name: 'Main Course'
     ),
-    Category(
+    const Category(
       id: 3,
-      name: 'Bread and Add-ons'
+      name: 'Bread & Add-ons'
     ),
-    Category(
+    const Category(
       id: 4,
       name: 'Classic Combos'
     ),
-    Category(
+    const Category(
       id: 5,
       name: 'Parantha'
     ),
-    Category(
+    const Category(
       id: 6,
       name: 'Dessert'
     ),
-    Category(
+    const Category(
       id: 7,
       name: 'Salads'
     ),
-    Category(
+    const Category(
       id: 8,
       name: 'Add-on'
     ),
-    Category(
+    const Category(
       id: 9,
       name: 'Boiled'
     ),

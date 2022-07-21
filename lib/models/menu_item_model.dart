@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class MenuItem extends Equatable {
+class MyMenuItem extends Equatable {
   final int id;
   final String name;
   final double price;
   // final String imageUrl;
 
-  MenuItem({
+  MyMenuItem({
       required this.id,
       required this.name,
       required this.price,
@@ -16,13 +16,13 @@ class MenuItem extends Equatable {
   @override
   List<Object?> get props => [id, name, price];
 
-  static List<MenuItem> menuItems = [
-    MenuItem(
+  static List<MyMenuItem> menuItems = [
+    MyMenuItem(
       id: 1,
       name: 'Pizza',
       price: 200,
     ),
-    MenuItem(
+    MyMenuItem(
       id: 2,
       name: 'Coca Cola',
       price: 90,

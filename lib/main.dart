@@ -5,6 +5,7 @@ import 'package:ticci/screens/menu.dart';
 import 'package:ticci/screens/profile.dart';
 import 'package:ticci/screens/register.dart';
 import 'package:ticci/screens/search.dart';
+import 'package:ticci/screens/splash_screen.dart';
 import 'package:ticci/screens/welcome.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Welcome.id,
+      initialRoute: Menu.id,
       routes: {
         Welcome.id:(context) => const Welcome(),
         Register.id:(context) => const Register(),
@@ -27,6 +28,7 @@ class Home extends StatelessWidget {
         Cart.id:(context) => const Cart(),
         Search.id:(context) => const Search(),
         Profile.id:(context) => const Profile(),
+        SplashScreen.id:(context) => const SplashScreen(),
       },
     );
   }

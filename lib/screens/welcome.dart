@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticci/screens/register.dart';
+import 'package:ticci/widgets/rounded_button.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -37,31 +38,16 @@ class Welcome extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Image.asset(
                       'assets/images/eating_together.png',
-                      height: 300
+                      width: double.infinity,
                     )
                   ),
                   const SizedBox(height: 40),
                   Align(
                     alignment: Alignment.center,
-                    child: ElevatedButton(
-                      onPressed:() => Navigator.pushNamed(context, Register.id),
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 60.0,
-                          vertical: 15.0,
-                        ),
-                        shape: const StadiumBorder(),
-                      ),
-                      child: const Text(
-                        'Get Started',
-                        style: TextStyle(
-                          fontFamily: 'SFProText',
-                          color: Color(0xFFFF4B3A),
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                    child: RoundedButton(
+                      text: 'Get Started',
+                      onPressed: () => Navigator.pushNamed(context, Register.id),
+                      colour: const Color(0xFFFF4B3A),
                     ),
                   )
                 ],
@@ -73,3 +59,4 @@ class Welcome extends StatelessWidget {
     );
   }
 }
+

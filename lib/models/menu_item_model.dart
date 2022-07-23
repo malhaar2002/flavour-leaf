@@ -6,7 +6,7 @@ class MyMenuItem extends Equatable {
   final double price;
   // final String imageUrl;
 
-  MyMenuItem({
+  const MyMenuItem({
       required this.id,
       required this.name,
       required this.price,
@@ -17,12 +17,12 @@ class MyMenuItem extends Equatable {
   List<Object?> get props => [id, name, price];
 
   static List<MyMenuItem> menuItems = [
-    MyMenuItem(
+    const MyMenuItem(
       id: 1,
       name: 'Pizza',
       price: 200,
     ),
-    MyMenuItem(
+    const MyMenuItem(
       id: 2,
       name: 'Coca Cola',
       price: 90,

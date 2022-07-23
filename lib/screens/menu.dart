@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/models/models.dart';
 import 'package:ticci/widgets/category_box.dart';
+import 'package:ticci/widgets/food_card.dart';
 import 'package:ticci/widgets/navdrawer.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -11,7 +13,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Navdrawer(),
+      drawer: const Drawer(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -71,6 +73,24 @@ class Menu extends StatelessWidget {
                     );
                   },
                 ),
+              ),
+              GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20,
+                shrinkWrap: true,
+                physics: const ScrollPhysics(),
+                childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height/0.9),
+                children: const [
+                  FoodCard(),
+                  FoodCard(),
+                  FoodCard(),
+                  FoodCard(),
+                  FoodCard(),
+                  FoodCard(),
+                  FoodCard(),
+                  FoodCard(),
+                ],
               )
             ],
           ),

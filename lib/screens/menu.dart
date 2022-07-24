@@ -4,7 +4,6 @@ import 'package:ticci/models/models.dart';
 import 'package:ticci/widgets/category_box.dart';
 import 'package:ticci/widgets/food_card.dart';
 import 'package:ticci/widgets/navdrawer.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -20,6 +19,7 @@ class Menu extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.black),
         actions: [
           IconButton(
+            // TODO: Use badges package to display number of items in cart above the icon
             icon: const Icon(Icons.shopping_cart_outlined),
             color: Colors.grey,
             onPressed: () => Navigator.pushNamed(context, Cart.id),
@@ -32,16 +32,18 @@ class Menu extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Delicious\nfood for you',
-                style: TextStyle(
+              Text(
+                MediaQuery.of(context).size.width < 600
+                    ? 'Delicious\nfood for you'
+                    : 'Delicious food for you',
+                style: const TextStyle(
                   fontFamily: 'SF-Pro-Rounded',
                   fontSize: 34,
                 ),
               ),
               const SizedBox(height: 30),
               SizedBox(
-                width: 314,
+                width: double.infinity,
                 height: 60,
                 child: TextField(
                   style: const TextStyle(
@@ -62,7 +64,7 @@ class Menu extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               SizedBox(
-                height: 100,
+                height: 70,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
@@ -74,23 +76,22 @@ class Menu extends StatelessWidget {
                   },
                 ),
               ),
-              GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
+              GridView.builder(
                 shrinkWrap: true,
+                itemCount: MyMenuItem.menuItems.length,
                 physics: const ScrollPhysics(),
-                childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height/0.9),
-                children: const [
-                  FoodCard(),
-                  FoodCard(),
-                  FoodCard(),
-                  FoodCard(),
-                  FoodCard(),
-                  FoodCard(),
-                  FoodCard(),
-                  FoodCard(),
-                ],
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1.0,
+                  crossAxisSpacing: 1.0,
+                  mainAxisSpacing: 5,
+                  mainAxisExtent: 310,
+                ),
+                itemBuilder: (context, index) {
+                  return FoodCard(
+                    menuItem: MyMenuItem.menuItems[index],
+                  );
+                },
               )
             ],
           ),

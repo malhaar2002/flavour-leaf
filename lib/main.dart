@@ -20,7 +20,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Welcome.id,
+      initialRoute: Menu.id,
       routes: {
         Welcome.id:(context) => const Welcome(),
         Register.id:(context) => const Register(),

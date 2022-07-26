@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ticci/models/category_model.dart';
+import 'package:ticci/models/menu_item_model.dart';
 import 'package:ticci/screens/cart.dart';
-import 'package:ticci/models/models.dart';
 import 'package:ticci/widgets/category_box.dart';
 import 'package:ticci/widgets/food_card.dart';
 import 'package:ticci/widgets/navdrawer.dart';
@@ -22,7 +23,9 @@ class Menu extends StatelessWidget {
             // TODO: Use badges package to display number of items in cart above the icon
             icon: const Icon(Icons.shopping_cart_outlined),
             color: Colors.grey,
-            onPressed: () => Navigator.pushNamed(context, Cart.id),
+            onPressed: () {
+              Navigator.pushNamed(context, Cart.id);
+            },
           )
         ],
       ),

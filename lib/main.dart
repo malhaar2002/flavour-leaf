@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
         Register.id:(context) => const Register(),
         Login.id:(context) => const Login(),
         Menu.id:(context) => const Menu(),
-        Cart.id:(context) => const Cart(),
+        Cart.id:(context) => Cart(),
         Search.id:(context) => const Search(),
         Profile.id:(context) => const Profile(),
         SplashScreen.id:(context) => const SplashScreen(),

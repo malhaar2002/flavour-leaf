@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticci/models/menu_item_model.dart';
-import 'package:ticci/widgets/food_card.dart';
+import 'package:ticci/widgets/menucard.dart';
 
 class MenuCardButton extends StatefulWidget {
   const MenuCardButton({super.key, required this.menuItem});

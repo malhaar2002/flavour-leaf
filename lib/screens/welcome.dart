@@ -48,6 +48,7 @@ class Welcome extends StatelessWidget {
                       text: 'Get Started',
                       onPressed: () => Navigator.pushNamed(context, Menu.id),
                       colour: const Color(0xFFFF4B3A),
+                      backgroundColour: const Color(0xFFFFFFFF),
                     ),
                   )
                 ],

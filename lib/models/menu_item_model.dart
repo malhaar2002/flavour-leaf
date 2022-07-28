@@ -4,6 +4,7 @@ class MyMenuItem {
   final double price;
   final String imageUrl;
   int quantity;
+  bool addedToCart;
 
   MyMenuItem({
       required this.id,
@@ -11,6 +12,7 @@ class MyMenuItem {
       required this.price,
       required this.imageUrl,
       this.quantity = 0,
+      this.addedToCart = false,
     });
 
   static List<MyMenuItem> menuItems = [

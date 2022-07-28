@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:ticci/models/category_model.dart';
 import 'package:ticci/models/menu_item_model.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/widgets/category_box.dart';
 import 'package:ticci/widgets/food_card.dart';
-import 'package:ticci/widgets/navdrawer.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -13,10 +13,13 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        leading: IconButton(
+          onPressed: () => ZoomDrawer.of(context)!.toggle(),
+          icon: const Icon(Icons.menu),
+        ),
         iconTheme: const IconThemeData(color: Colors.black),
         actions: [
           IconButton(

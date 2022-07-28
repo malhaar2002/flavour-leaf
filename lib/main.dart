@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/screens/login.dart';
 import 'package:ticci/screens/menu.dart';
+import 'package:ticci/screens/orders.dart';
 import 'package:ticci/screens/profile.dart';
 import 'package:ticci/screens/register.dart';
 import 'package:ticci/screens/search.dart';
 import 'package:ticci/screens/splash_screen.dart';
 import 'package:ticci/screens/welcome.dart';
-import 'package:ticci/widgets/navdrawer.dart';
+import 'package:ticci/widgets/zoomdrawer.dart';
 
 void main() {
   runApp(const Home());
@@ -20,7 +21,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Menu.id,
+      initialRoute: ZoomDrawerMaker.id,
       routes: {
         Welcome.id:(context) => const Welcome(),
         Register.id:(context) => const Register(),
@@ -30,7 +31,8 @@ class Home extends StatelessWidget {
         Search.id:(context) => const Search(),
         Profile.id:(context) => const Profile(),
         SplashScreen.id:(context) => const SplashScreen(),
-        Navdrawer.id:(context) => const Navdrawer()
+        ZoomDrawerMaker.id:(context) => const ZoomDrawerMaker(mainScreen: Menu()),
+        Orders.id:(context) => const Orders(),
       },
     );
   }

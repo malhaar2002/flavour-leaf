@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1085714830404",
+    "project_id": "flavour-leaf",
+    "storage_bucket": "flavour-leaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085714830404:android:c72fd1aa9821e7aac25811",
+        "android_client_info": {
+          "package_name": "com.example.ticci"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085714830404-dtrj5e0265f6s2l8nc682c1ik4qvfk3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7GSslUARR7ga0MSgNGeFm4i2zx3SMO28"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085714830404-dtrj5e0265f6s2l8nc682c1ik4qvfk3s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085714830404:android:386a941b8c1b87c1c25811",
+        "android_client_info": {
+          "package_name": "com.flavour_leaf.ticci"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085714830404-dtrj5e0265f6s2l8nc682c1ik4qvfk3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7GSslUARR7ga0MSgNGeFm4i2zx3SMO28"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085714830404-dtrj5e0265f6s2l8nc682c1ik4qvfk3s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

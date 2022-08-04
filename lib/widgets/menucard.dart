@@ -19,7 +19,7 @@ class FoodCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              backgroundImage: NetworkImage(menuItem.imageUrl),
+              backgroundImage: AssetImage('assets/images/food/${menuItem.id}.jpeg'),
               radius: 50,
             ),
             const SizedBox(height: 25),

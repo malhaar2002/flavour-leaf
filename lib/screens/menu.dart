@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:ticci/data/get_food.dart';
 import 'package:ticci/models/category_model.dart';
-import 'package:ticci/models/menu_item_model.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/widgets/category_box.dart';
 import 'package:ticci/widgets/menucard.dart';
@@ -84,7 +84,7 @@ class Menu extends StatelessWidget {
               ),
               GridView.builder(
                 shrinkWrap: true,
-                itemCount: MyMenuItem.menuItems.length,
+                itemCount: menuItems.length,
                 physics: const ScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -94,8 +94,15 @@ class Menu extends StatelessWidget {
                   mainAxisExtent: 310,
                 ),
                 itemBuilder: (context, index) {
-                  return FoodCard(
-                    menuItem: MyMenuItem.menuItems[index],
+                  return FutureBuilder(
+                    future: getFood(),
+                    builder: (context, snapshot) {
+                      print(menuItems);
+                      print('Idhar hoon mai');
+                      return FoodCard(
+                        menuItem: menuItems[index],
+                      );
+                    },
                   );
                 },
               )

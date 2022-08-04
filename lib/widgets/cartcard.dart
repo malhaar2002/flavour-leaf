@@ -32,7 +32,7 @@ class CartCard extends StatelessWidget {
             children: [
               ListTile(
                 leading: CircleAvatar(
-                  backgroundImage: NetworkImage(cartItem.imageUrl),
+                  backgroundImage: AssetImage('assets/images/food/${cartItem.id}.jpeg'),
                   radius: 50,
                 ),
                 title: Text(

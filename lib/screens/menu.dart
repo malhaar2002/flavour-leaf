@@ -1,10 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:ticci/data/get_food.dart';
 import 'package:ticci/models/category_model.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/widgets/category_box.dart';
-import 'package:ticci/widgets/menucard.dart';
+import 'package:ticci/widgets/menu_gridview.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -82,30 +83,15 @@ class Menu extends StatelessWidget {
                   },
                 ),
               ),
-              GridView.builder(
-                shrinkWrap: true,
-                itemCount: menuItems.length,
-                physics: const ScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.0,
-                  crossAxisSpacing: 1.0,
-                  mainAxisSpacing: 5,
-                  mainAxisExtent: 310,
-                ),
-                itemBuilder: (context, index) {
-                  return FutureBuilder(
-                    future: getFood(),
-                    builder: (context, snapshot) {
-                      print(menuItems);
-                      print('Idhar hoon mai');
-                      return FoodCard(
-                        menuItem: menuItems[index],
-                      );
-                    },
-                  );
-                },
-              )
+              menuItems.isEmpty
+                  ? FutureBuilder(
+                      future: getFood(),
+                      builder: (context, snapshot) {
+                        // Do not, I repeat do not add a constant here
+                        // ignore: prefer_const_constructors
+                        return MenuGridview();
+                      })
+                  : const MenuGridview(),
             ],
           ),
         ),

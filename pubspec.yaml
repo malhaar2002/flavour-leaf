@@ -17,9 +17,9 @@ dependencies:
   flutter_zoom_drawer: ^3.0.3
   badges: ^2.0.3
   flutter_slidable: ^2.0.0
-  firebase_core: ^1.20.0
-  firebase_auth: ^3.6.2
-  cloud_firestore: ^3.4.3
+  firebase_core: ^1.19.0
+  firebase_auth: ^3.4.1
+  cloud_firestore: ^3.2.1
 
 dev_dependencies:
   flutter_test:

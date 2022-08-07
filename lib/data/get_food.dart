@@ -13,7 +13,7 @@ getFood() async {
         MyMenuItem(
           id: doc['id'],
           name: doc['name'],
-          price: doc['price'],
+          price: doc['price'].toDouble(),
         ),
       );
     }

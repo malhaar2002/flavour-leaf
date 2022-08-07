@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/screens/login.dart';
@@ -10,7 +11,9 @@ import 'package:ticci/screens/splash_screen.dart';
 import 'package:ticci/screens/welcome.dart';
 import 'package:ticci/widgets/zoomdrawer.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const Home());
 }
 

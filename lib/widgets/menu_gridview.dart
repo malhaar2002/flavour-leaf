@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:ticci/data/get_food.dart';
+import 'package:get/get.dart';
+import 'package:ticci/controllers/product_controller.dart';
 import 'package:ticci/widgets/menucard.dart';
 
 class MenuGridview extends StatelessWidget {
-  const MenuGridview({super.key});
+  final productController = Get.put(ProductController());
+  MenuGridview({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
-      itemCount: menuItems.length,
+      itemCount: productController.products.length,
       physics: const ScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -19,7 +21,7 @@ class MenuGridview extends StatelessWidget {
         mainAxisExtent: 310,
       ),
       itemBuilder: (context, index) {
-        return FoodCard(menuItem: menuItems[index]);
+        return FoodCard(menuItem: productController.products[index]);
       },
     );
   }

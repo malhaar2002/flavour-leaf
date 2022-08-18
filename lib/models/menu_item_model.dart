@@ -1,15 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class MyMenuItem {
   final int id;
   final String name;
   final double price;
-  int quantity;
-  bool addedToCart;
 
-  MyMenuItem({
+  const MyMenuItem({
     required this.id,
     required this.name,
     required this.price,
-    this.quantity = 0,
-    this.addedToCart = false,
   });
+
+  static MyMenuItem fromSnapshot(DocumentSnapshot snap) {
+    MyMenuItem product = MyMenuItem(
+      id: snap['id'],
+      price: snap['price'].toDouble(),
+      name: snap['name']
+    );
+    return product;
+  }
 }

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ticci/controllers/cart_controller.dart';
+import 'package:ticci/controllers/product_controller.dart';
 import 'package:ticci/models/menu_item_model.dart';
-import 'package:ticci/widgets/menucardbutton.dart';
 
 class FoodCard extends StatelessWidget {
-  const FoodCard({super.key, required this.menuItem});
+  FoodCard({super.key, required this.menuItem});
   final MyMenuItem menuItem;
-  static Set<MyMenuItem> cartItems = {};
-  static Set<MyMenuItem> getCartItems() => cartItems;
+  final cartController = Get.put(CartController());
+  final ProductController productController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,8 @@ class FoodCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              backgroundImage: AssetImage('assets/images/food/${menuItem.id}.jpeg'),
+              backgroundImage:
+                  AssetImage('assets/images/food/${menuItem.id}.jpeg'),
               radius: 50,
             ),
             const SizedBox(height: 25),
@@ -42,7 +45,26 @@ class FoodCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            MenuCardButton(menuItem: menuItem),
+            ElevatedButton(
+              onPressed: () {
+                cartController.addProduct(menuItem);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFFA4A0C),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Text(
+                // widget.menuItem.quantity == 0 ? 'Add to Cart' : 'Added',
+                'Add to Cart',
+                style: TextStyle(
+                  fontFamily: 'SFProText',
+                  fontSize: 10,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
       ),

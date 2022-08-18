@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/screens/login.dart';
 import 'package:ticci/screens/menu.dart';
@@ -14,7 +15,7 @@ import 'package:ticci/widgets/zoomdrawer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const Home());
+  runApp(const GetMaterialApp(home: Home()));
 }
 
 class Home extends StatelessWidget {

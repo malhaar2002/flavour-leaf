@@ -1,7 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:ticci/data/get_food.dart';
+import 'package:get/get.dart';
 import 'package:ticci/models/category_model.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/widgets/category_box.dart';
@@ -28,7 +27,7 @@ class Menu extends StatelessWidget {
             icon: const Icon(Icons.shopping_cart_outlined),
             color: Colors.grey,
             onPressed: () {
-              Navigator.pushNamed(context, Cart.id);
+              Get.to(() => Cart());
             },
           )
         ],
@@ -83,15 +82,8 @@ class Menu extends StatelessWidget {
                   },
                 ),
               ),
-              menuItems.isEmpty
-                  ? FutureBuilder(
-                      future: getFood(),
-                      builder: (context, snapshot) {
-                        // Do not, I repeat do not add a constant here
-                        // ignore: prefer_const_constructors
-                        return MenuGridview();
-                      })
-                  : const MenuGridview(),
+              // ignore: prefer_const_constructors
+              MenuGridview(),
             ],
           ),
         ),

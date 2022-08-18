@@ -15,7 +15,7 @@ class RoundedButton extends StatelessWidget {
         backgroundColor: backgroundColour,
         padding: const EdgeInsets.symmetric(
           horizontal: 80,
-          vertical: 17.0,
+          vertical: 14.0,
         ),
         shape: const StadiumBorder(),
       ),

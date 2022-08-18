@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:ticci/models/menu_item_model.dart';
 
 class CartController extends GetxController {
+
   // Add a dict to store the products in the cart
   final _products = {}.obs;
 
@@ -11,13 +12,6 @@ class CartController extends GetxController {
     } else {
       _products[product] = 1;
     }
-
-    Get.snackbar(
-      'Added to Cart',
-      "You have added ${product.name} to the cart",
-      snackPosition: SnackPosition.BOTTOM,
-      duration: const Duration(seconds: 2),
-    );
   }
 
   void removeProduct(MyMenuItem product) {

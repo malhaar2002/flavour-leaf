@@ -110,18 +110,17 @@ class Cart extends StatelessWidget {
                       ],
                     )
                   : SizedBox(
-                    height: MediaQuery.of(context).size.height - 150, 
-                    child: Column(
+                      height: MediaQuery.of(context).size.height - 150,
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
-                          Text(
-                            'Uh Oh!',
-                            style: TextStyle(
-                              fontFamily: 'SF-Pro-Rounded',
-                              fontSize: 28,
-                            ),
+                          Icon(
+                            Icons.shopping_cart_outlined,
+                            size: 100,
+                            color: Color(0xFFC7C7C7),
                           ),
+                          SizedBox(height: 20),
                           Text(
                             'Your Cart is Empty',
                             style: TextStyle(
@@ -139,7 +138,7 @@ class Cart extends StatelessWidget {
                           ),
                         ],
                       ),
-                  ),
+                    ),
             ),
           ),
         ),

@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
           duration: 1000,
           splash: Image.asset('assets/images/logo.png'),
           splashIconSize: 250,
-          nextScreen: Menu(),
+          nextScreen: const Menu(),
           splashTransition: SplashTransition.scaleTransition,
         ),
       ),

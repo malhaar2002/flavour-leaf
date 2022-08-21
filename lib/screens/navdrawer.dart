@@ -22,7 +22,7 @@ class Navdrawer extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                NavdrawerItem(
+                const NavdrawerItem(
                   icon: Icons.local_pizza_outlined,
                   title: 'Menu',
                   menuScreen: Menu(),

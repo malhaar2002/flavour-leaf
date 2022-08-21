@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
+import 'package:ticci/controllers/cart_controller.dart';
 import 'package:ticci/models/category_model.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/widgets/category_box.dart';
 import 'package:ticci/widgets/menu_gridview.dart';
+import 'package:badges/badges.dart';
 
 class Menu extends StatelessWidget {
-  const Menu({super.key});
+  Menu({super.key});
   static const id = 'menu';
+  final CartController cartController = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +25,34 @@ class Menu extends StatelessWidget {
         ),
         iconTheme: const IconThemeData(color: Colors.black),
         actions: [
-          IconButton(
-            // TODO: Use badges package to display number of items in cart above the icon
-            icon: const Icon(Icons.shopping_cart_outlined),
-            color: Colors.grey,
-            onPressed: () {
-              Get.to(() => Cart());
-            },
-          )
+          Center(
+            child: Obx(
+              () => Badge(
+                position: BadgePosition.topEnd(top: 0, end: 0),
+                showBadge: cartController.products.length > 0 ? true : false,
+                animationType: BadgeAnimationType.scale,
+                badgeContent: Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Text(
+                    cartController.products.length.toString(),
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                badgeColor: const Color(0xFFFA4A0C),
+                child: IconButton(
+                  icon: const Icon(Icons.shopping_cart_outlined, size: 25),
+                  color: Colors.grey,
+                  onPressed: () {
+                    Get.to(() => Cart());
+                  },
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
         ],
       ),
       body: Padding(

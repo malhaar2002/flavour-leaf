@@ -15,7 +15,10 @@ import 'package:ticci/widgets/zoomdrawer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const GetMaterialApp(home: Home()));
+  runApp(const GetMaterialApp(
+    home: Home(),
+    debugShowCheckedModeBanner: false,
+  ));
 }
 
 class Home extends StatelessWidget {
@@ -27,16 +30,16 @@ class Home extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: ZoomDrawerMaker.id,
       routes: {
-        Welcome.id:(context) => const Welcome(),
-        Register.id:(context) => const Register(),
-        Login.id:(context) => const Login(),
-        Menu.id:(context) => const Menu(),
-        Cart.id:(context) => Cart(),
-        Search.id:(context) => const Search(),
-        Profile.id:(context) => const Profile(),
-        SplashScreen.id:(context) => const SplashScreen(),
-        ZoomDrawerMaker.id:(context) => const ZoomDrawerMaker(mainScreen: Menu()),
-        Orders.id:(context) => const Orders(),
+        Welcome.id: (context) => const Welcome(),
+        Register.id: (context) => const Register(),
+        Login.id: (context) => const Login(),
+        Menu.id: (context) => Menu(),
+        Cart.id: (context) => Cart(),
+        Search.id: (context) => const Search(),
+        Profile.id: (context) => const Profile(),
+        SplashScreen.id: (context) => const SplashScreen(),
+        ZoomDrawerMaker.id: (context) => ZoomDrawerMaker(mainScreen: Menu()),
+        Orders.id: (context) => const Orders(),
       },
     );
   }

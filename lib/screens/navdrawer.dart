@@ -23,15 +23,15 @@ class Navdrawer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const NavdrawerItem(
-                  title: 'Profile',
-                  icon: Icons.person,
-                  menuScreen: Profile(),
-                ),
-                const SizedBox(height: 15),
-                const NavdrawerItem(
                   icon: Icons.local_pizza_outlined,
                   title: 'Menu',
                   menuScreen: Menu(),
+                ),
+                const SizedBox(height: 15),
+                NavdrawerItem(
+                  icon: Icons.shopping_cart_outlined,
+                  title: 'Cart',
+                  menuScreen: Cart(),
                 ),
                 const SizedBox(height: 15),
                 const NavdrawerItem(
@@ -40,10 +40,10 @@ class Navdrawer extends StatelessWidget {
                   menuScreen: Orders(),
                 ),
                 const SizedBox(height: 15),
-                NavdrawerItem(
-                  icon: Icons.shopping_cart_outlined,
-                  title: 'Cart',
-                  menuScreen: Cart(),
+                const NavdrawerItem(
+                  title: 'Profile',
+                  icon: Icons.person,
+                  menuScreen: Profile(),
                 ),
               ],
             ),

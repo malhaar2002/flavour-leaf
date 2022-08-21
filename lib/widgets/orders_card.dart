@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ticci/models/order_model.dart';
 
 class OrdersCard extends StatelessWidget {
-  const OrdersCard({super.key});
+  const OrdersCard({super.key, required this.order});
+  final OrderModel order;
 
   @override
   Widget build(BuildContext context) {
@@ -13,50 +15,52 @@ class OrdersCard extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const ListTile(
+            ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/food/1.jpeg'),
-                radius: 50,
+                backgroundImage: AssetImage('assets/images/food/${order.id}.jpeg'),
+                radius: 40,
               ),
               title: Text(
-                'Pizza',
-                style: TextStyle(
+                order.name,
+                style: const TextStyle(
                   fontFamily: 'SF-Pro-Rounded',
                 ),
               ),
               subtitle: Text(
-                "₹200",
-                style: TextStyle(
+                "₹${order.price}",
+                style: const TextStyle(
                   fontFamily: 'SFProText',
                 ),
               ),
               trailing: Text(
-                'x 1',
-                style: TextStyle(
+                'x ${order.noItems}',
+                style: const TextStyle(
                   fontFamily: 'SFProText',
                   fontSize: 17,
                 ),
               ),
             ),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
-                  '20 Aug 2022 at 4:15 pm',
-                  style: TextStyle(
+                  order.date,
+                  style: const TextStyle(
                     fontFamily: 'SFProText',
                     fontSize: 12,
                   ),
                 ),
                 Card(
-                  color: Color(0xFFC7C7C7),
+                  color: order.status == "In Progress" ? const Color(0xFFFA4A0C): const Color(0xFFC7C7C7),
                   child: Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'Completed',
+                      order.status,
                       style: TextStyle(
                         fontFamily: 'SFProText',
                         fontSize: 12,
+                        color: order.status == "In Progress" ? const Color(0xFFFFFFFF): const Color(0xFF000000),
                       ),
                     ),
                   ),

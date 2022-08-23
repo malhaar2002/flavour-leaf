@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:ticci/controllers/cart_controller.dart';
+import 'package:ticci/screens/order_status.dart';
 
 void startPayment() {
   Razorpay razorpay = Razorpay();
@@ -11,16 +13,19 @@ void startPayment() {
   openCheckout(razorpay, controller.total.toString());
 }
 
-void _handlePaymentSuccess() {
-  print("Payment successful");
+void _handlePaymentSuccess(PaymentSuccessResponse response) {
+  Get.to(() => const OrderStatus(status: 'success'));
 }
 
-void _handlePaymentError() {
-  print("Payment error");
+void _handlePaymentError(PaymentFailureResponse response) {
+  Get.to(() => const OrderStatus(status: 'failure'));
 }
 
-void _handlerExternalWallet() {
-  print("External wallet");
+void _handlerExternalWallet(ExternalWalletResponse response) {
+  Get.snackbar(
+    'Payment Status',
+    'External Wallet',
+  );
 }
 
 void openCheckout(Razorpay razorpay, String amount) {
@@ -38,6 +43,8 @@ void openCheckout(Razorpay razorpay, String amount) {
   try {
     razorpay.open(options);
   } catch (e) {
-    print(e.toString());
+    if (kDebugMode) {
+      print(e.toString());
+    }
   }
 }

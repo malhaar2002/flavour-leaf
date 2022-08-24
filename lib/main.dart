@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
       initialRoute: WelcomeNavbar.id,
       routes: {
         Welcome.id: (context) => const Welcome(),
-        Register.id: (context) => const Register(),
+        Register.id: (context) => Register(),
         Login.id: (context) => Login(),
         Menu.id: (context) => const Menu(),
         Cart.id: (context) => Cart(),

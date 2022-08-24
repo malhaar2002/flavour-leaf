@@ -10,6 +10,7 @@ import 'package:ticci/screens/register.dart';
 import 'package:ticci/screens/search.dart';
 import 'package:ticci/screens/splash_screen.dart';
 import 'package:ticci/screens/welcome.dart';
+import 'package:ticci/widgets/welcome_navbar.dart';
 import 'package:ticci/widgets/zoomdrawer.dart';
 
 void main() async {
@@ -28,11 +29,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: ZoomDrawerMaker.id,
+      initialRoute: WelcomeNavbar.id,
       routes: {
         Welcome.id: (context) => const Welcome(),
         Register.id: (context) => const Register(),
-        Login.id: (context) => const Login(),
+        Login.id: (context) => Login(),
         Menu.id: (context) => const Menu(),
         Cart.id: (context) => Cart(),
         Search.id: (context) => const Search(),
@@ -40,6 +41,7 @@ class Home extends StatelessWidget {
         SplashScreen.id: (context) => const SplashScreen(),
         ZoomDrawerMaker.id: (context) => const ZoomDrawerMaker(mainScreen: Menu()),
         Orders.id: (context) => const Orders(),
+        WelcomeNavbar.id:(context) => const WelcomeNavbar(),
       },
     );
   }

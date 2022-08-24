@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ticci/screens/cart.dart';
@@ -16,23 +20,49 @@ import 'package:ticci/widgets/zoomdrawer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const GetMaterialApp(
-    home: Home(),
-    debugShowCheckedModeBanner: false,
-  ));
+  runApp(const Home());
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  late StreamSubscription<User?> user;
+
+  // To keep the user signed in when they restart the app
+  @override
+  void initState() {
+    super.initState();
+    user = FirebaseAuth.instance.authStateChanges().listen((user) {
+      if (kDebugMode) {
+        if (user == null) {
+          print('User is currently signed out!');
+        } else {
+          print('User is signed in');
+          print(user.email);
+        }
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    user.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: WelcomeNavbar.id,
+      initialRoute: FirebaseAuth.instance.currentUser == null ? Welcome.id : ZoomDrawerMaker.id,
       routes: {
         Welcome.id: (context) => const Welcome(),
-        Register.id: (context) => Register(),
+        Register.id: (context) => const Register(),
         Login.id: (context) => Login(),
         Menu.id: (context) => const Menu(),
         Cart.id: (context) => Cart(),

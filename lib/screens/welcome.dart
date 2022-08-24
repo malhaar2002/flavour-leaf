@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ticci/screens/menu.dart';
 import 'package:ticci/widgets/rounded_button.dart';
+import 'package:ticci/widgets/welcome_navbar.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -46,7 +46,7 @@ class Welcome extends StatelessWidget {
                     alignment: Alignment.center,
                     child: RoundedButton(
                       text: 'Get Started',
-                      onPressed: () => Navigator.pushNamed(context, Menu.id),
+                      onPressed: () => Navigator.pushNamed(context, WelcomeNavbar.id),
                       colour: const Color(0xFFFF4B3A),
                       backgroundColour: const Color(0xFFFFFFFF),
                     ),

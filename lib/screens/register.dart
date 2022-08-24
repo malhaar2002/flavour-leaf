@@ -1,4 +1,6 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ticci/services/register_firebase.dart';
 import 'package:ticci/widgets/custom_formfield.dart';
 import 'package:ticci/widgets/rounded_button.dart';
@@ -12,7 +14,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-
   String fullName = '';
 
   String email = '';
@@ -60,6 +61,10 @@ class _RegisterState extends State<Register> {
               ),
               CustomFormField(
                 placeholder: 'Email Address',
+                validator: (value) =>
+                    value != null && !EmailValidator.validate(value.trim())
+                        ? 'Enter a valid email'
+                        : null,
                 onChanged: (value) {
                   email = value.trim();
                 },
@@ -74,6 +79,9 @@ class _RegisterState extends State<Register> {
               ),
               CustomFormField(
                 placeholder: 'Password',
+                validator: (value) => value != null && value.trim().length < 6
+                    ? 'Password must be at least 6 characters'
+                    : null,
                 onChanged: (value) {
                   password = value.trim();
                 },
@@ -93,13 +101,17 @@ class _RegisterState extends State<Register> {
                 text: 'Register',
                 onPressed: () {
                   if (password == repeatPassword) {
-                    print(fullName);
                     signUp(
                       context,
                       fullName,
                       email,
                       phoneNo,
                       password,
+                    );
+                  } else {
+                    Get.snackbar(
+                      'Password and Repeat Password do not match',
+                      'Please check and try again',
                     );
                   }
                 },

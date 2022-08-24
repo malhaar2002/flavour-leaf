@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ticci/screens/cart.dart';
 import 'package:ticci/screens/menu.dart';
@@ -22,35 +23,38 @@ class Navdrawer extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const NavdrawerItem(
+                NavdrawerItem(
                   icon: Icons.local_pizza_outlined,
                   title: 'Menu',
-                  menuScreen: Menu(),
+                  onTap: (() => Navigator.push(context, MaterialPageRoute(builder:(context) => const ZoomDrawerMaker(mainScreen: Menu()))))
                 ),
                 const SizedBox(height: 15),
                 NavdrawerItem(
                   icon: Icons.shopping_cart_outlined,
                   title: 'Cart',
-                  menuScreen: Cart(),
+                  onTap: (() => Navigator.push(context, MaterialPageRoute(builder:(context) => ZoomDrawerMaker(mainScreen: Cart()))))
                 ),
                 const SizedBox(height: 15),
-                const NavdrawerItem(
+                NavdrawerItem(
                   icon: Icons.shopping_bag_outlined,
                   title: 'Orders',
-                  menuScreen: Orders(),
+                  onTap: (() => Navigator.push(context, MaterialPageRoute(builder:(context) => const ZoomDrawerMaker(mainScreen: Orders()))))
                 ),
                 const SizedBox(height: 15),
-                const NavdrawerItem(
+                NavdrawerItem(
                   title: 'Profile',
                   icon: Icons.person,
-                  menuScreen: Profile(),
+                  onTap: (() => Navigator.push(context, MaterialPageRoute(builder:(context) => const ZoomDrawerMaker(mainScreen: Profile()))))
                 ),
               ],
             ),
-            const NavdrawerItem(
+            NavdrawerItem(
               icon: Icons.logout,
               title: 'Sign-out',
-              menuScreen: Welcome(),
+              onTap: (() {
+                FirebaseAuth.instance.signOut();
+                Navigator.push(context, MaterialPageRoute(builder:(context) => const ZoomDrawerMaker(mainScreen: Welcome())));
+              }),
             )
           ],
         ),
@@ -60,15 +64,19 @@ class Navdrawer extends StatelessWidget {
 }
 
 class NavdrawerItem extends StatelessWidget {
-  const NavdrawerItem({super.key, required this.icon, required this.title, required this.menuScreen});
+  const NavdrawerItem(
+      {super.key,
+      required this.icon,
+      required this.title,
+      required this.onTap});
   final IconData icon;
   final String title;
-  final Widget menuScreen;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (() =>  Navigator.push(context, MaterialPageRoute(builder:(context) => ZoomDrawerMaker(mainScreen: menuScreen)))),
+      onTap: onTap,
       child: ListTile(
         leading: Icon(icon, color: Colors.white),
         title: Text(

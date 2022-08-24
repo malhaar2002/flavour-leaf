@@ -5,11 +5,9 @@ import 'package:get/get.dart';
 import 'package:ticci/screens/menu.dart';
 import 'package:ticci/widgets/zoomdrawer.dart';
 
-Future signUp(
+Future signIn(
   BuildContext context,
-  String fullName,
   String email,
-  String phoneNo,
   String password,
 ) async {
   showDialog(
@@ -23,7 +21,7 @@ Future signUp(
   );
 
   try {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: email,
       password: password,
     );

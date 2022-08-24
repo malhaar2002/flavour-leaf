@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticci/services/login_firebase.dart';
 import 'package:ticci/widgets/custom_formfield.dart';
 import 'package:ticci/widgets/rounded_button.dart';
 
@@ -38,14 +39,14 @@ class Login extends StatelessWidget {
               CustomFormField(
                 placeholder: 'Email ID',
                 onChanged: (value) {
-                  email = value;
+                  email = value.trim();
                 },
                 keyboardType: TextInputType.emailAddress,
               ),
               CustomFormField(
                 placeholder: 'Password',
                 onChanged: (value) {
-                  password = value;
+                  password = value.trim();
                 },
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
@@ -53,7 +54,7 @@ class Login extends StatelessWidget {
               const SizedBox(height: 40),
               RoundedButton(
                 text: 'Login',
-                onPressed: () {},
+                onPressed: () => signIn(context, email, password),
                 colour: const Color(0xFFFFFFFF),
                 backgroundColour: const Color(0xFFFA4A0C),
               ),

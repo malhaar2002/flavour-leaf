@@ -45,7 +45,7 @@ class WelcomeNavbar extends StatelessWidget {
 List<Widget> _buildScreens() {
   return [
     Login(),
-    Register()
+    const Register()
   ];
 }
 

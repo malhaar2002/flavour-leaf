@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ticci/controllers/cart_controller.dart';
 import 'package:ticci/screens/cart.dart';
+import 'package:ticci/widgets/zoomdrawer.dart';
 
 class CartBadge extends StatelessWidget {
   CartBadge({super.key});
@@ -31,7 +32,7 @@ class CartBadge extends StatelessWidget {
             icon: const Icon(Icons.shopping_cart_outlined, size: 25),
             color: Colors.grey,
             onPressed: () {
-              Get.to(() => Cart());
+              Get.to(() => ZoomDrawerMaker(mainScreen: Cart()));
             },
           ),
         ),

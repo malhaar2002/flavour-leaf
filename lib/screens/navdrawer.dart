@@ -42,7 +42,7 @@ class Navdrawer extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 NavdrawerItem(
-                  title: 'Profile',
+                  title: 'Update Profile',
                   icon: Icons.person,
                   onTap: (() => Navigator.push(context, MaterialPageRoute(builder:(context) => const ZoomDrawerMaker(mainScreen: Profile()))))
                 ),

@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ticci/screens/menu.dart';
+import 'package:ticci/screens/splash_screen.dart';
 import 'package:ticci/widgets/zoomdrawer.dart';
 
 Future signIn(
@@ -32,5 +33,5 @@ Future signIn(
   }
 
   Navigator.pop(context);
-  Get.to(() => const ZoomDrawerMaker(mainScreen: Menu()));
+  Get.to(() => const SplashScreen());
 }

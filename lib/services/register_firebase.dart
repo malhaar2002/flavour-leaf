@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ticci/screens/menu.dart';
+import 'package:ticci/screens/splash_screen.dart';
 import 'package:ticci/widgets/zoomdrawer.dart';
 
 Future signUp(
@@ -33,6 +35,14 @@ Future signUp(
     }
   }
 
+FirebaseFirestore.instance
+  .collection('users')
+  .add({
+    'fullName': fullName,
+    'email': email,
+    'phoneNo': phoneNo,
+  });
+
   Navigator.pop(context);
-  Get.to(() => const ZoomDrawerMaker(mainScreen: Menu()));
+  Get.to(() => const SplashScreen());
 }

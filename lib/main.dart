@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: FirebaseAuth.instance.currentUser == null ? Welcome.id : ZoomDrawerMaker.id,
+      initialRoute: FirebaseAuth.instance.currentUser == null ? Welcome.id : SplashScreen.id,
       routes: {
         Welcome.id: (context) => const Welcome(),
         Register.id: (context) => const Register(),

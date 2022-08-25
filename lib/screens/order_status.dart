@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:get/get.dart';
 import 'package:ticci/controllers/cart_controller.dart';
-import 'package:ticci/controllers/product_controller.dart';
 import 'package:ticci/models/menu_item_model.dart';
 import 'package:ticci/screens/orders.dart';
 import 'package:ticci/services/add_order.dart';
+import 'package:ticci/widgets/zoomdrawer.dart';
 
 class OrderStatus extends StatefulWidget {
   const OrderStatus({super.key, required this.status});
@@ -41,7 +41,7 @@ class _OrderStatusState extends State<OrderStatus> {
               ? Image.asset('assets/images/order_success.gif')
               : Image.asset('assets/images/order_fail.gif'),
           splashIconSize: 250,
-          nextScreen: Orders(),
+          nextScreen: ZoomDrawerMaker(mainScreen: Orders()),
         ),
       ),
     );

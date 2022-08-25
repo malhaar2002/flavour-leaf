@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticci/models/order_model.dart';
+import 'package:ticci/services/date_format.dart';
 
 class OrdersCard extends StatelessWidget {
   const OrdersCard({super.key, required this.order});
@@ -17,7 +18,7 @@ class OrdersCard extends StatelessWidget {
           children: [
             ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/food/${order.id}.jpeg'),
+                backgroundImage: AssetImage('assets/images/food/${order.foodID}.jpeg'),
                 radius: 40,
               ),
               title: Text(
@@ -45,7 +46,7 @@ class OrdersCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  order.date,
+                  formatTimestamp(order.date),
                   style: const TextStyle(
                     fontFamily: 'SFProText',
                     fontSize: 12,

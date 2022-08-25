@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ticci/models/order_model.dart';
+import 'package:get/get.dart';
+import 'package:ticci/controllers/order_controller.dart';
 import 'package:ticci/widgets/orders_card.dart';
 
 class Orders extends StatelessWidget {
-  const Orders({super.key});
+  Orders({super.key});
   static const id = 'orders';
+  final orderController = Get.put(OrderController());
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class Orders extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-        child: OrderModel.ordersList.isNotEmpty
+        child: orderController.orders.isNotEmpty 
             ? SingleChildScrollView(
                 child: Center(
                   child: Column(
@@ -37,10 +39,10 @@ class Orders extends StatelessWidget {
                       const SizedBox(height: 25),
                       ListView.builder(
                         shrinkWrap: true,
-                        itemCount: OrderModel.ordersList.length,
+                        itemCount: orderController.orders.length,
                         physics: const ScrollPhysics(),
                         itemBuilder: (context, index) =>
-                            OrdersCard(order: OrderModel.ordersList[index]),
+                            OrdersCard(order: orderController.orders[index]),
                       )
                     ],
                   ),

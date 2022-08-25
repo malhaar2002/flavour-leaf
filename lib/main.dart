@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
         Profile.id: (context) => const Profile(),
         SplashScreen.id: (context) => const SplashScreen(),
         ZoomDrawerMaker.id: (context) => const ZoomDrawerMaker(mainScreen: Menu()),
-        Orders.id: (context) => const Orders(),
+        Orders.id: (context) =>  Orders(),
         WelcomeNavbar.id:(context) => const WelcomeNavbar(),
       },
     );

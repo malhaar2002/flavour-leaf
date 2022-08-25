@@ -15,7 +15,7 @@ class OrderStatus extends StatelessWidget {
           duration: status == "success" ? 4000 : 3000,
           splash: status == "success" ? Image.asset('assets/images/order_success.gif') : Image.asset('assets/images/order_fail.gif'),
           splashIconSize: 250,
-          nextScreen: const Orders(),
+          nextScreen:  Orders(),
         ),
       ),
     );

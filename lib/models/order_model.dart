@@ -1,44 +1,34 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class OrderModel {
-  int id;
+  int foodID;
   String name;
   int noItems;
   double price;
   String status;
-  String date;
+  Timestamp date;
+  String email;
 
   OrderModel({
-    required this.id,
+    required this.foodID,
     required this.name,
     required this.noItems,
     required this.price,
     required this.status,
     required this.date,
+    required this.email,
   });
 
-  static List<OrderModel> ordersList = [
-    // OrderModel(
-    //   id: 5,
-    //   name: 'Cold Coffee',
-    //   noItems: 3,
-    //   price: 120,
-    //   status: 'In Progress',
-    //   date: '21 Aug 2022 at 8:03 pm',
-    // ),
-    // OrderModel(
-    //   id: 1,
-    //   name: 'Pizza',
-    //   noItems: 1,
-    //   price: 200,
-    //   status: 'Completed',
-    //   date: '18 Aug 2022 at 6:15 pm',
-    // ),
-    // OrderModel(
-    //   id: 3,
-    //   name: 'Burger',
-    //   noItems: 1,
-    //   price: 200,
-    //   status: 'Completed',
-    //   date: '15 Aug 2022 at 4:15 pm',
-    // ),
-  ];
+  static OrderModel fromSnapshot(DocumentSnapshot snap) {
+    OrderModel order = OrderModel(
+      foodID: snap['foodID'],
+      name: snap['name'],
+      noItems: snap['noItems'],
+      price: snap['price'].toDouble(),
+      status: snap['status'],
+      date: snap['date'],
+      email: snap['email'],
+    );
+    return order;
+  }
 }

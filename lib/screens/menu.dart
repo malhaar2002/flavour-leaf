@@ -32,7 +32,7 @@ class Menu extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 25.0),
+                padding: const EdgeInsets.only(left: 15.0),
                 child: Text(
                   MediaQuery.of(context).size.width < 600
                       ? 'Delicious\nfood for you'

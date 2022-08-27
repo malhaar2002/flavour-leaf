@@ -26,18 +26,21 @@ class Menu extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                MediaQuery.of(context).size.width < 600
-                    ? 'Delicious\nfood for you'
-                    : 'Delicious food for you',
-                style: const TextStyle(
-                  fontFamily: 'SF-Pro-Rounded',
-                  fontSize: 34,
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: Text(
+                  MediaQuery.of(context).size.width < 600
+                      ? 'Delicious\nfood for you'
+                      : 'Delicious food for you',
+                  style: const TextStyle(
+                    fontFamily: 'SF-Pro-Rounded',
+                    fontSize: 34,
+                  ),
                 ),
               ),
               const SizedBox(height: 30),

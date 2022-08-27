@@ -19,9 +19,9 @@ class FirestoreDB {
     .collection('orders')
     .snapshots()
     .map((snapshot) {
-      List<OrderModel> _orderList = snapshot.docs.map((doc) => OrderModel.fromSnapshot(doc)).toList();
-      _orderList.sort((a, b) => (b.date).compareTo(a.date));
-      return _orderList;
+      List<OrderModel> orderList = snapshot.docs.map((doc) => OrderModel.fromSnapshot(doc)).toList();
+      orderList.sort((a, b) => (b.date).compareTo(a.date));
+      return orderList;
     });
   }
 }

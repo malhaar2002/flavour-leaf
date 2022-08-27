@@ -37,7 +37,16 @@ void openCheckout(Razorpay razorpay, String amount) {
     'prefill': {'contact': '8888888888', 'email': 'aroramalhaar@gmail.com'},
     'external': {
       'wallets': ['paytm']
-    }
+    },
+    "method": {
+      "netbanking": false,
+      "card": false,
+      "upi": true,
+      "wallet": false,
+      "emi": false,
+      "paylater": false,
+    },
+    'theme': {'color': '#FA4A0C'},
   };
 
   try {

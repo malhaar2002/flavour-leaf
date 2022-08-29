@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ticci/screens/cart.dart';
+import 'package:ticci/screens/checkout.dart';
 import 'package:ticci/screens/login.dart';
 import 'package:ticci/screens/menu.dart';
 import 'package:ticci/screens/orders.dart';
@@ -72,6 +73,7 @@ class _HomeState extends State<Home> {
         ZoomDrawerMaker.id: (context) => const ZoomDrawerMaker(mainScreen: Menu()),
         Orders.id: (context) =>  Orders(),
         WelcomeNavbar.id:(context) => const WelcomeNavbar(),
+        Checkout.id: (context) => const Checkout(),
       },
     );
   }

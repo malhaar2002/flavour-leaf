@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:ticci/controllers/order_controller.dart';
 import 'package:ticci/widgets/orders_card.dart';
@@ -15,7 +16,7 @@ class Orders extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () => ZoomDrawer.of(context)!.toggle(),
           icon: const Icon(Icons.menu),
         ),
         iconTheme: const IconThemeData(color: Colors.black),

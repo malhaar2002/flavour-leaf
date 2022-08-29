@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:ticci/controllers/cart_controller.dart';
-import 'package:ticci/services/rzp.dart';
+import 'package:ticci/screens/checkout.dart';
 import 'package:ticci/widgets/cartcard.dart';
 import 'package:ticci/widgets/rounded_button.dart';
 
@@ -99,8 +99,8 @@ class Cart extends StatelessWidget {
                           ),
                           const SizedBox(height: 25),
                           RoundedButton(
-                            text: 'Confirm Order',
-                            onPressed: () => startPayment(),
+                            text: 'Checkout',
+                            onPressed: () => Navigator .pushNamed(context, Checkout.id),
                             backgroundColour: const Color(0xFFFA4A0C),
                             colour: const Color(0xFFFFFFFF),
                           ),

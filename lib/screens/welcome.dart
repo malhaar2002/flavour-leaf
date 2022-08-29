@@ -47,7 +47,7 @@ class Welcome extends StatelessWidget {
                     child: RoundedButton(
                       text: 'Get Started',
                       onPressed: () => Navigator.pushNamed(context, WelcomeNavbar.id),
-                      colour: const Color(0xFFFF4B3A),
+                      colour: const Color(0xFFFA4A0C),
                       backgroundColour: const Color(0xFFFFFFFF),
                     ),
                   )

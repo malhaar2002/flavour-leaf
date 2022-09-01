@@ -23,34 +23,40 @@ class Checkout extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Checkout',
-              style: TextStyle(
-                fontFamily: 'SFProText',
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.black,
-              ),
+        child: CustomScrollView(slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Checkout',
+                  style: TextStyle(
+                    fontFamily: 'SFProText',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
+                ),
+                const DeliveryDropdown(),
+                const TextField(
+                  decoration:
+                      InputDecoration(labelText: 'Additional Information'),
+                ),
+                Image.asset(
+                  'assets/images/on_its_way.png',
+                  height: 300,
+                ),
+                RoundedButton(
+                  text: 'Confirm Order',
+                  onPressed: () => startPayment(),
+                  backgroundColour: const Color(0xFFFA4A0C),
+                  colour: const Color(0xFFFFFFFF),
+                ),
+              ],
             ),
-            const DeliveryDropdown(),
-            const TextField(
-              decoration: InputDecoration(labelText: 'Additional Information'),
-            ),
-            Image.asset(
-              'assets/images/on_its_way.png',
-              height: 300,
-            ),
-            RoundedButton(
-              text: 'Confirm Order',
-              onPressed: () => startPayment(),
-              backgroundColour: const Color(0xFFFA4A0C),
-              colour: const Color(0xFFFFFFFF),
-            ),
-          ],
-        ),
+          )
+        ]),
       ),
     );
   }

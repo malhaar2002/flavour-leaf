@@ -5,6 +5,7 @@ import 'package:ticci/controllers/cart_controller.dart';
 import 'package:ticci/screens/checkout.dart';
 import 'package:ticci/widgets/cartcard.dart';
 import 'package:ticci/widgets/rounded_button.dart';
+import 'package:ticci/widgets/zoomdrawer.dart';
 
 class Cart extends StatelessWidget {
   Cart({super.key});
@@ -100,7 +101,9 @@ class Cart extends StatelessWidget {
                           const SizedBox(height: 25),
                           RoundedButton(
                             text: 'Checkout',
-                            onPressed: () => Navigator .pushNamed(context, Checkout.id),
+                            onPressed: () {
+                              Get.to(() => const ZoomDrawerMaker(mainScreen: Checkout()));
+                            },
                             backgroundColour: const Color(0xFFFA4A0C),
                             colour: const Color(0xFFFFFFFF),
                           ),

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:get/get.dart';
+import 'package:ticci/controllers/checkout_controller.dart';
 import 'package:ticci/services/rzp.dart';
 import 'package:ticci/widgets/dropdown.dart';
 import 'package:ticci/widgets/rounded_button.dart';
 
 class Checkout extends StatelessWidget {
-  const Checkout({super.key});
+  Checkout({super.key});
   static const id = 'checkout';
+  final checkoutcontroller = Get.put(CheckoutController());
+  String _additionalInfo = '';
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +43,13 @@ class Checkout extends StatelessWidget {
                   ),
                 ),
                 const DeliveryDropdown(),
-                const TextField(
-                  decoration:
-                      InputDecoration(labelText: 'Additional Information'),
+                TextField(
+                  decoration: const InputDecoration(
+                    labelText: 'Additional Information',
+                  ),
+                  onChanged: (value) {
+                    _additionalInfo = value;
+                  },
                 ),
                 Image.asset(
                   'assets/images/on_its_way.png',
@@ -49,7 +57,10 @@ class Checkout extends StatelessWidget {
                 ),
                 RoundedButton(
                   text: 'Confirm Order',
-                  onPressed: () => startPayment(),
+                  onPressed: () {
+                    checkoutcontroller.addAdditionalInfo(_additionalInfo);
+                    startPayment();
+                  },
                   backgroundColour: const Color(0xFFFA4A0C),
                   colour: const Color(0xFFFFFFFF),
                 ),

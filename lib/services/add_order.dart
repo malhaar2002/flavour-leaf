@@ -1,33 +1,39 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ticci/models/menu_item_model.dart';
+import 'package:get/get.dart';
+import 'package:ticci/controllers/cart_controller.dart';
+import 'package:ticci/controllers/checkout_controller.dart';
 import 'package:ticci/services/loggedin_user.dart';
 
-void addOrder(MyMenuItem product, int quantity) async {
+void addOrder(Map<String, int> productsMap) async {
+    final CartController cartController = Get.find();
+    final CheckoutController checkoutController = Get.find();
     if (userEmail == '') await getCurrentUser();
     await FirebaseFirestore.instance
     .collection('orders')
     .add({
       'date': DateTime.now(),
       'email': userEmail,
-      'foodID': product.id,
-      'name': product.name,
-      'noItems': quantity,
-      'price': product.price,
+      'productsMap': productsMap,
+      'deliveryLocation': checkoutController.deliveryLocation.value,
+      'additionalInfo': checkoutController.additionalInfo.value,
+      'price': cartController.total,
       'status': 'In Progress',
     });
   }
 
-void addFailedOrder(MyMenuItem product, int quantity) async {
+void addFailedOrder(Map<String, int> productsMap) async {
+    final CartController cartController = Get.find();
+    final CheckoutController checkoutController = Get.find();
     if (userEmail == '') await getCurrentUser();
     await FirebaseFirestore.instance
     .collection('orders')
     .add({
       'date': DateTime.now(),
       'email': userEmail,
-      'foodID': product.id,
-      'name': product.name,
-      'noItems': quantity,
-      'price': product.price,
+      'productsMap': productsMap,
+      'deliveryLocation': checkoutController.deliveryLocation.value,
+      'additionalInfo': checkoutController.additionalInfo.value,
+      'price': cartController.total,
       'status': 'Failed',
     });
   }

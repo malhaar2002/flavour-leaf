@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ticci/controllers/checkout_controller.dart';
 
 String _dropDownValue = 'Delivery Location';
 
@@ -10,6 +12,7 @@ class DeliveryDropdown extends StatefulWidget {
 }
 
 class _DeliveryDropdownState extends State<DeliveryDropdown> {
+  final checkoutController = Get.put(CheckoutController());
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
@@ -30,6 +33,7 @@ class _DeliveryDropdownState extends State<DeliveryDropdown> {
         setState(
           () {
             _dropDownValue = val!;
+            checkoutController.addDeliveryLocation(_dropDownValue);
           },
         );
       },

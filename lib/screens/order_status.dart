@@ -17,18 +17,21 @@ class OrderStatus extends StatefulWidget {
 }
 
 class _OrderStatusState extends State<OrderStatus> {
+  final Map<String, int> _productsMap = {};
+
   @override
   void initState() {
     super.initState();
     CartController cartController = Get.find();
     Future.delayed(Duration.zero, () async {
       for (MyMenuItem product in cartController.products.keys) {
-        widget.status == "success"
-            ? addOrder(product, cartController.products[product])
-            : addFailedOrder(product, cartController.products[product]);
+        _productsMap[product.name] = cartController.products[product]!;
         cartController.removeProduct(product);
       }
     });
+    widget.status == "success"
+        ? addOrder(_productsMap)
+        : addFailedOrder(_productsMap);
   }
 
   @override

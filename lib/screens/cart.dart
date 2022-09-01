@@ -102,7 +102,8 @@ class Cart extends StatelessWidget {
                           RoundedButton(
                             text: 'Checkout',
                             onPressed: () {
-                              Get.to(() => const ZoomDrawerMaker(mainScreen: Checkout()));
+                              // Get.to(() => ZoomDrawerMaker(mainScreen: Checkout()));
+                              Get.to(() => Checkout());
                             },
                             backgroundColour: const Color(0xFFFA4A0C),
                             colour: const Color(0xFFFFFFFF),

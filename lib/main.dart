@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
         ZoomDrawerMaker.id: (context) => const ZoomDrawerMaker(mainScreen: Menu()),
         Orders.id: (context) =>  Orders(),
         WelcomeNavbar.id:(context) => const WelcomeNavbar(),
-        Checkout.id: (context) => const Checkout(),
+        Checkout.id: (context) => Checkout(),
       },
     );
   }

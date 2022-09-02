@@ -5,7 +5,6 @@ import 'package:ticci/controllers/cart_controller.dart';
 import 'package:ticci/screens/checkout.dart';
 import 'package:ticci/widgets/cartcard.dart';
 import 'package:ticci/widgets/rounded_button.dart';
-import 'package:ticci/widgets/zoomdrawer.dart';
 
 class Cart extends StatelessWidget {
   Cart({super.key});

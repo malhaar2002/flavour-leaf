@@ -24,11 +24,13 @@ class _OrderStatusState extends State<OrderStatus> {
     super.initState();
     CartController cartController = Get.find();
     Future.delayed(Duration.zero, () async {
-      for (MyMenuItem product in cartController.products.keys) {
+      await for (MyMenuItem product in cartController.products.keys) {
         _productsMap[product.name] = cartController.products[product]!;
         cartController.removeProduct(product);
       }
     });
+    // FIXME: _productsMap is being passed empty, but if I place it inside Future.delayed, it doesn't work at all
+    print("See if this is empty: $_productsMap");
     widget.status == "success"
         ? addOrder(_productsMap)
         : addFailedOrder(_productsMap);

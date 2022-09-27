@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:ticci/models/category_model.dart';
+import 'package:ticci/screens/search.dart';
 import 'package:ticci/widgets/cart_badge.dart';
 import 'package:ticci/widgets/category_box.dart';
 import 'package:ticci/widgets/menu_gridview.dart';
@@ -62,6 +63,8 @@ class Menu extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.grey[100],
                   ),
+                  onTap: () => Navigator.pushNamed(context, Search.id),
+                  readOnly: true,
                 ),
               ),
               const SizedBox(height: 30),

@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MyMenuItem {
   final int id;
@@ -11,12 +11,12 @@ class MyMenuItem {
     required this.price,
   });
 
-  static MyMenuItem fromSnapshot(DocumentSnapshot snap) {
-    MyMenuItem product = MyMenuItem(
-      id: snap['id'],
-      price: snap['price'].toDouble(),
-      name: snap['name']
-    );
-    return product;
-  }
+  // static MyMenuItem fromSnapshot(DocumentSnapshot snap) {
+  //   MyMenuItem product = MyMenuItem(
+  //     id: snap['id'],
+  //     price: snap['price'].toDouble(),
+  //     name: snap['name']
+  //   );
+  //   return product;
+  // }
 }

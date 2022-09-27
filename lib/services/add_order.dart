@@ -8,7 +8,6 @@ void addOrder(Map<String, int> productsMap) async {
     final CartController cartController = Get.find();
     final CheckoutController checkoutController = Get.find();
     if (userEmail == '') await getCurrentUser();
-    print('Here is the products map: $productsMap');
     await FirebaseFirestore.instance
     .collection('orders')
     .add({

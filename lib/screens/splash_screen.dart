@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: AnimatedSplashScreen(
-          duration: 1000,
+          duration: 500,
           splash: Image.asset('assets/images/logo.png'),
           splashIconSize: 250,
           nextScreen: const ZoomDrawerMaker(mainScreen: Menu()),

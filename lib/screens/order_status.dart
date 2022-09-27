@@ -8,8 +8,9 @@ import 'package:ticci/services/add_order.dart';
 import 'package:ticci/widgets/zoomdrawer.dart';
 
 class OrderStatus extends StatefulWidget {
-  const OrderStatus({super.key, required this.status});
+  const OrderStatus({super.key, required this.status, required this.productsMap});
   final String status;
+  final Map<String, int> productsMap;
   static const id = 'order_status';
 
   @override
@@ -17,24 +18,16 @@ class OrderStatus extends StatefulWidget {
 }
 
 class _OrderStatusState extends State<OrderStatus> {
-  final Map<String, int> _productsMap = {};
 
   @override
   void initState() {
     super.initState();
-    CartController cartController = Get.find();
-    Future.delayed(Duration.zero, () async {
-      await for (MyMenuItem product in cartController.products.keys) {
-        _productsMap[product.name] = cartController.products[product]!;
-        cartController.removeProduct(product);
-      }
-    });
-    // FIXME: _productsMap is being passed empty, but if I place it inside Future.delayed, it doesn't work at all
-    print("See if this is empty: $_productsMap");
     widget.status == "success"
-        ? addOrder(_productsMap)
-        : addFailedOrder(_productsMap);
+        ? addOrder(widget.productsMap)
+        : addFailedOrder(widget.productsMap);
   }
+
+  makeProductsMap() {}
 
   @override
   Widget build(BuildContext context) {
